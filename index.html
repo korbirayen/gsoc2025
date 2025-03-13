@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSoC 2025</title>
+  <link rel="stylesheet" href="styles/organization_style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Additional styles for the index page */
+    .search-container {
+      margin: 2rem 0;
+      position: relative;
+    }
+    
+    .search-input {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 8px;
+      background: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .organizations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .organization-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .organization-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .organization-card a {
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-weight: 500;
+      background-color: rgba(116, 142, 255, 0.342);
+      padding: 0;
+      margin: 0;
+      box-shadow: none;
+      display: block;
+      transition: color 0.2s ease;
+    }
+    
+    .organization-card a:hover {
+      color: var(--accent);
+      transform: none;
+      box-shadow: none;
+      background-color: rgba(116, 142, 255, 0.596);
+    }
+
+    .slogan{
+        color: rgb(209, 209, 209);
+    }
+    
+    .alphabet-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      position: sticky;
+      top: 0;
+      background: var(--background);
+      padding: 1rem 0;
+      z-index: 10;
+    }
+    
+    .alphabet-nav a {
+      background: var(--text-primary);
+      color: white;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: all 0.2s ease;
+    }
+    
+    .alphabet-nav a:hover {
+      background: var(--primary-light);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 2px 2px 2px var(--primary-dark);
+    }
+    
+    .section-header {
+      margin: 2rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--primary-light);
+      color: var(--primary-light);
+      scroll-margin-top: 80px;
+    }
+    
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>GSoC 2025 - Open Source Organizations</h1>
+      <p class="slogan">Explore 180+ organizations participating in open source initiatives</p>
+    </div>
+  </header>
+  
+  <div class="container">
+    <div class="search-container">
+      <input type="text" id="search" class="search-input" placeholder="Search organizations...">
+    </div>
+    
+    <div class="alphabet-nav" id="alphabet-nav">
+      <a href="#A">A</a>
+      <a href="#B">B</a>
+      <a href="#C">C</a>
+      <a href="#D">D</a>
+      <a href="#E">E</a>
+      <a href="#F">F</a>
+      <a href="#G">G</a>
+      <a href="#H">H</a>
+      <a href="#I">I</a>
+      <a href="#J">J</a>
+      <a href="#K">K</a>
+      <a href="#L">L</a>
+      <a href="#M">M</a>
+      <a href="#N">N</a>
+      <a href="#O">O</a>
+      <a href="#P">P</a>
+      <a href="#Q">Q</a>
+      <a href="#R">R</a>
+      <a href="#S">S</a>
+      <a href="#T">T</a>
+      <a href="#U">U</a>
+      <a href="#V">V</a>
+      <a href="#W">W</a>
+      <a href="#X">X</a>
+      <a href="#Y">Y</a>
+      <a href="#Z">Z</a>
+    </div>
+    
+    <div id="organizations-container">
+      <!-- Organizations will be dynamically populated here -->
+    </div>
+  </div>
+  
+  <footer>
+    <div class="container">
+      <p>© 2025 Open Source Organizations Directory</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // List of organizations
+      const organizations = [
+        "52 North Spatial Information Research GmbH",
+        "AboutCode",
+        "Accord Project",
+        "AFLplusplus",
+        "Alaska",
+        "AnkiDroid",
+        "AOSSIE",
+        "Apache DataFusion",
+        "Apache Software Foundation",
+        "API Dash",
+        "ArduPilot",
+        "AsyncAPI",
+        "BeagleBoard",
+        "Blender Foundation",
+        "BRL-CAD",
+        "cBioPortal for Cancer Genomics",
+        "CCExtractor Development",
+        "Center for Translational Data Science",
+        "Ceph",
+        "CERN HSF",
+        "CGAL Project",
+        "CHAOSS",
+        "Checker Framework",
+        "checkstyle",
+        "Chromium",
+        "CircuitVerse",
+        "CloudCV",
+        "CNCF",
+        "CRIU",
+        "D Language Foundation",
+        "Dart",
+        "Data for the Common Good",
+        "DBpedia",
+        "Debian",
+        "DeepChem",
+        "Department of Biomedical Informatics Emory University",
+        "Django",
+        "dora-rs",
+        "Drupal Association",
+        "Eclipse Foundation",
+        "Electron",
+        "Fedora Project",
+        "FFmpeg",
+        "FLARE",
+        "Fortran-lang",
+        "FOSSASIA",
+        "FOSSology",
+        "Free and Open Source Silicon Foundation",
+        "FreeCAD",
+        "freifunk",
+        "GeomScale",
+        "Git",
+        "GitLab",
+        "GNOME Foundation",
+        "GNSS-SDR",
+        "GNU Compiler Collection",
+        "GNU Image Manipulation Program",
+        "GNU Octave",
+        "GNU Radio",
+        "Google DeepMind",
+        "gprMax",
+        "GRAME",
+        "Graphite",
+        "Haskell",
+        "HumanAI",
+        "INCF",
+        "Inkscape",
+        "International Catrobat Association",
+        "Internet Archive",
+        "Internet Health Report",
+        "Invesalius",
+        "IOOS",
+        "JabRef",
+        "JAX and Keras",
+        "JdeRobot",
+        "Jenkins",
+        "Jitsi",
+        "Joomla!",
+        "JSON Schema",
+        "KDE Community",
+        "Keploy",
+        "Kiwix",
+        "Kornia",
+        "Kotlin Foundation",
+        "kro Kube Resource Orchestrator",
+        "Kubeflow",
+        "KubeVirt",
+        "LabLua",
+        "Learning Equality",
+        "LibreOffice",
+        "libssh",
+        "Liquid Galaxy project",
+        "LLVM Compiler Infrastructure",
+        "Machine Learning for Science",
+        "MariaDB",
+        "MBDyn",
+        "MDAnalysis",
+        "Meshery",
+        "MetaBrainz Foundation Inc",
+        "Micro Electronics Research Lab UITU",
+        "MIT App Inventor",
+        "Mixxx",
+        "National Resource for Network Biology",
+        "Neovim",
+        "Neuroinformatics Unit",
+        "NumFOCUS",
+        "omegaUp",
+        "Open Climate Fix",
+        "Open Food Facts",
+        "Open HealthCare Network",
+        "Open Robotics",
+        "Open Science Initiative for Perfusion Imaging",
+        "Open Science Labs",
+        "Open Technologies Alliance GFOSS",
+        "Open Transit Software Foundation",
+        "OpenAFS",
+        "OpenAstronomy",
+        "OpenCV",
+        "OpenELIS Global",
+        "OpenMRS",
+        "OpenMS",
+        "OpenStreetMap",
+        "openSUSE Project",
+        "OpenVINO Toolkit",
+        "OpenWISP",
+        "Oppia Foundation",
+        "Organic Maps",
+        "OSGeo (Open Source Geospatial Foundation)",
+        "OWASP Foundation",
+        "PAL Robotics",
+        "PEcAn Project",
+        "Pharo Consortium",
+        "Plone Foundation",
+        "PostgreSQL",
+        "Processing Foundation",
+        "Project Mesa",
+        "Prometheus-Operator",
+        "Python Software Foundation",
+        "QC Devs",
+        "QEMU",
+        "R project for statistical computing",
+        "Rizin",
+        "rocket.chat",
+        "Rspamd",
+        "RTEMS Project",
+        "SageMath",
+        "Scala Center",
+        "ScummVM",
+        "Society for Arts and Technology",
+        "Software and Computational Systems Lab at LMU Munich",
+        "SQLancer",
+        "St. Jude Children's Research Hospital",
+        "stdlib",
+        "Stellar group",
+        "Stichting SU2",
+        "Sugar Labs",
+        "SW360",
+        "Swift",
+        "SymPy",
+        "Synfig",
+        "TARDIS RT Collaboration",
+        "The FreeBSD Project",
+        "The Honeynet Project",
+        "The JPF team",
+        "The Julia Language",
+        "The Linux Foundation",
+        "The Mifos Initiative",
+        "The NetBSD Foundation",
+        "The ns 3 Network Simulator Project",
+        "The P4 Language Consortium",
+        "The Palisadoes Foundation",
+        "The Rust Foundation",
+        "The Tor Project",
+        "Typelevel",
+        "UC OSPO",
+        "Unicode, Inc.",
+        "Unikraft",
+        "Uramaki LAB",
+        "VideoLAN",
+        "Wagtail",
+        "Waycrate",
+        "webpack",
+        "Wellcome Sanger Tree of Life",
+        "Zendalona",
+        "Zulip"
+      ];
+
+      // Group organizations by first letter
+      const groupedOrganizations = {};
+      const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+      
+      alphabet.forEach(letter => {
+        groupedOrganizations[letter] = organizations.filter(org => 
+          org.trim().toUpperCase().startsWith(letter)
+        );
+      });
+
+      // Populate the organizations container
+      const container = document.getElementById('organizations-container');
+      
+      alphabet.forEach(letter => {
+        const orgs = groupedOrganizations[letter];
+        
+        if (orgs.length > 0) {
+          // Create section header
+          const header = document.createElement('h2');
+          header.textContent = letter;
+          header.id = letter;
+          header.className = 'section-header';
+          container.appendChild(header);
+          
+          // Create grid for this section
+          const grid = document.createElement('div');
+          grid.className = 'organizations-grid';
+          
+          orgs.forEach(org => {
+            const card = document.createElement('div');
+            card.className = 'organization-card';
+            
+            const link = document.createElement('a');
+            // Format the filename to match your Python script's output
+            const filename = org.replace(/\s+/g, '_');
+            link.href = `output/${filename}.html`;
+            link.textContent = org;
+            
+            card.appendChild(link);
+            grid.appendChild(card);
+          });
+          
+          container.appendChild(grid);
+        }
+      });
+
+      // Search functionality
+      const searchInput = document.getElementById('search');
+      searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const cards = document.querySelectorAll('.organization-card');
+        
+        cards.forEach(card => {
+          const orgName = card.querySelector('a').textContent.toLowerCase();
+          if (orgName.includes(searchTerm)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        
+        // Show/hide section headers based on visible cards
+        const sections = document.querySelectorAll('.section-header');
+        sections.forEach(section => {
+          const nextSibling = section.nextElementSibling;
+          const hasVisibleCards = Array.from(nextSibling.children).some(
+            card => card.style.display !== 'none'
+          );
+          
+          section.style.display = hasVisibleCards ? 'block' : 'none';
+          nextSibling.style.display = hasVisibleCards ? 'grid' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

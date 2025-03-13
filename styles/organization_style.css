@@ -1,0 +1,215 @@
+/* Modern, clean CSS for Mixxx website */
+:root {
+    --primary-color: #ff0000a2;
+    --primary-light: #b97bff;
+    --primary-dark: #4000a7;
+    --secondary-color: #ffc400;
+    --text-on-dark: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --background: #151517;
+    --card-bg: #f4f4f7;
+    --accent: #fc0457;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: var(--background);
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    overflow-x: hidden;
+  }
+  
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 245px;
+    background: linear-gradient(135deg, var(--primary-dark) , var(--primary-color));
+    z-index: -1;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+  
+  h1 {
+    font-size: 3.3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: var(--text-on-dark);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding-top: 2.2rem;
+  }
+  
+  p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+  
+  strong {
+    color: var(--primary-color);
+    font-weight: 600;
+  }
+  
+  a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--text-on-dark);
+    font-weight: 500;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    background: var(--primary-color);
+    padding: 0.7rem 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  a:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Style for the main content */
+  body > p:nth-of-type(1) {
+    color: var(--text-on-dark);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 3rem;
+  }
+  
+  /* Tech stack and topics */
+  body > p:nth-of-type(2),
+  body > p:nth-of-type(3) {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+  }
+  
+  body > p:nth-of-type(2):hover,
+  body > p:nth-of-type(3):hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Description */
+  body > p:nth-of-type(4) {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+  
+  /* Links */
+  body > p:nth-of-type(5),
+  body > p:nth-of-type(6),
+  body > p:nth-of-type(7) {
+    display: inline-block;
+  }
+  
+  body > p:nth-of-type(5) a {
+    background: var(--primary-color);
+  }
+  
+  body > p:nth-of-type(6) a {
+    background: var(--secondary-color);
+    color: var(--text-primary);
+  }
+  
+  body > p:nth-of-type(7) a {
+    background: var(--accent);
+  }
+  
+  /* Animation for page load */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  body > p:nth-of-type(2),
+  body > p:nth-of-type(3),
+  body > p:nth-of-type(4) {
+    animation: fadeIn 0.5s ease forwards;
+  }
+  
+  body > p:nth-of-type(3) {
+    animation-delay: 0.1s;
+  }
+  
+  body > p:nth-of-type(4) {
+    animation-delay: 0.2s;
+  }
+  
+  /* Media queries for responsiveness */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+    
+    body {
+      padding: 1.5rem;
+    }
+    
+    body > p:nth-of-type(1) {
+      font-size: 1.2rem;
+    }
+    .back-button {
+      top: 1rem;
+      left: 1.5rem;
+    }
+  }
+
+
+  .back-button {
+    position: absolute;
+    top: 1.5rem;
+    left: 2rem;
+    background: var(--secondary-color);
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    z-index: 10;
+  }
+  
+  .back-button::before {
+    content: "←";
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+  }
+  
+  .back-button:hover {
+    background: #ffd54f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Add Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
